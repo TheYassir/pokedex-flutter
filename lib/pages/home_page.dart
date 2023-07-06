@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/home_bloc.dart';
 
+import '../components/pokedex_appbar.dart';
 import '../components/pokemon_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,10 +24,7 @@ class HomePage extends StatelessWidget {
         return homeBloc;
       },
       child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            title: Text(title),
-          ),
+          appBar: const PokedexAppBar(title: "Pokedex Flutter"),
           body: BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               if (state.isLoading) {
@@ -36,6 +34,8 @@ class HomePage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Row(
@@ -53,9 +53,14 @@ class HomePage extends StatelessWidget {
                           children: [
                             SizedBox(
                               // height: 300,
-                              child: ListView.builder(
+                              child: GridView.builder(
                                   shrinkWrap: true,
                                   itemCount: state.pokemons.length,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                    maxCrossAxisExtent: 300,
+                                    childAspectRatio: 2 / 2,
+                                  ),
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return PokemonCard(

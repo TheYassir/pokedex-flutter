@@ -5,10 +5,10 @@ class PokemonModel {
   String imgshiny;
   int weight;
   int height;
-  List<Map<String, dynamic>> types;
-  List<Map<String, dynamic>> stats;
-  List<Map<String, dynamic>> species;
-  List<Map<String, dynamic>> evolution;
+  dynamic types;
+  dynamic stats;
+  dynamic species;
+  dynamic evolution;
 
   PokemonModel({
     required this.id,

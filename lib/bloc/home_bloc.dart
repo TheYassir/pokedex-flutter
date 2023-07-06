@@ -16,14 +16,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     // "Event Handler" : fonction qui sera appelée lorsqu'un event est reçu par notre Bloc
     on<HomeLoadPokemonsEvent>(
         (HomeLoadPokemonsEvent event, Emitter<HomeState> emit) async {
-      print("HomeState : J'ai reçu un event ! $event");
+      // print("HomeState : J'ai reçu un event ! $event");
       // En réponse à l'événement, on change d'état : on émet un nouveau State
       HomeState newState = const HomeState(pokemons: [], isLoading: true);
       emit(newState);
 
       // On fait appel à notre service pour récupérer nos données
       List<PokemonModel> pokemons = await PokemonService.getPokemon();
-      print("HomeState : $pokemons");
+      // print("HomeState : $pokemons");
       // Notre traitement est fini, on change d'état : on émet un nouveau State
       // Qui contient nos données et on stop le chargement
       emit(HomeState(pokemons: pokemons, isLoading: false));
