@@ -5,5 +5,7 @@ abstract class HomeEvent {
   const HomeEvent();
 }
 
-// Evénement spécifique pour demander le chargement des véhicules
+// Evénement spécifique pour demander le chargement des pokemons
 class HomeLoadPokemonsEvent extends HomeEvent {}
+
+class HomeFilterPokemonsEvent extends HomeEvent {}

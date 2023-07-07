@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/home_bloc.dart';
 
 import '../components/pokedex_appbar.dart';
+import '../components/pokedex_drawer.dart';
 import '../components/pokemon_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -30,52 +31,61 @@ class HomePage extends StatelessWidget {
               if (state.isLoading) {
                 return const Center(child: CircularProgressIndicator());
               } else {
-                return SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Liste des Pokemons',
-                              style: TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Column(
-                          children: [
-                            SizedBox(
-                              // height: 300,
-                              child: GridView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: state.pokemons.length,
-                                  gridDelegate:
-                                      const SliverGridDelegateWithMaxCrossAxisExtent(
-                                    maxCrossAxisExtent: 300,
-                                    childAspectRatio: 2 / 2,
+                return LayoutBuilder(
+                  builder: (BuildContext context,
+                      BoxConstraints viewportConstraints) {
+                    return SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                            minHeight: viewportConstraints.maxHeight),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Liste des Pokemons',
+                                    style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold),
                                   ),
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return PokemonCard(
-                                        pokemon: state.pokemons[index]);
-                                  }),
-                            ),
-                          ],
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              Column(
+                                children: [
+                                  GridView.builder(
+                                      shrinkWrap: true,
+                                      physics: const ClampingScrollPhysics(),
+                                      itemCount: state.pokemons.length,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                                        maxCrossAxisExtent: 300,
+                                        childAspectRatio: 2 / 2,
+                                      ),
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        return PokemonCard(
+                                            pokemon: state.pokemons[index]);
+                                      }),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 );
               }
             },
-          )),
+          ),
+          drawer: pokedexDrawer(context)),
     );
   }
 }

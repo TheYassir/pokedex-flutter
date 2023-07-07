@@ -19,7 +19,7 @@ class PokedexAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {
             context.go('/');
           },
-          icon: const Icon(Icons.home),
+          icon: const Icon(Icons.catching_pokemon),
         ),
       ],
     );
