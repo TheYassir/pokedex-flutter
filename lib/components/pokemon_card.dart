@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:pokemon/models/pokemon_model.dart';
 import 'package:pokemon/services/pokemon_service.dart';
 import 'package:go_router/go_router.dart';

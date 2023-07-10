@@ -2,7 +2,7 @@ import json
 import requests
 import pprint
 
-api_url = "https://pokeapi.co/api/v2/pokemon?limit=150"
+api_url = "https://pokeapi.co/api/v2/pokemon?limit=151"
 response = requests.get(api_url)
 data = response.json()
 pokemons = []
