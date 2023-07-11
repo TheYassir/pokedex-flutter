@@ -27,7 +27,7 @@ class PokemonCard extends StatelessWidget {
             left: 0,
             right: 0,
             top: 0,
-            child: Image.network(
+            child: Image.asset(
               pokemon.img,
               fit: BoxFit.scaleDown,
               filterQuality: FilterQuality.high,

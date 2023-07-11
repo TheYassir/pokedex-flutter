@@ -1,6 +1,7 @@
 import json
 import requests
 import pprint
+import os
 
 api_url = "https://pokeapi.co/api/v2/pokemon?limit=151"
 response = requests.get(api_url)
@@ -26,14 +27,26 @@ for pokemon in data['results']:
       optitype.append(datareq['types'][0]['type']['name'])
       optitype.append(datareq['types'][1]['type']['name'])
 
+  reqimagedefault = requests.get(datareq['sprites']['front_default'])
+  os.makedirs(os.path.dirname(f"assets/img/{datareq['name']}_default.png"), exist_ok=True)
+  file = open(f"assets/img/{datareq['name']}_default.png", "wb")
+  file.write(reqimagedefault.content)
+  file.close()
+
+  reqimageshiny = requests.get(datareq['sprites']['front_shiny'])
+  os.makedirs(os.path.dirname(f"assets/img/{datareq['name']}_shiny.png"), exist_ok=True)
+  file2 = open(f"assets/img/{datareq['name']}_shiny.png", "wb")
+  file2.write(reqimageshiny.content)
+  file2.close()
+
 
   poke = {
     "id": datareq['id'],
     "name": datareq['name'],
     "weight": datareq['weight'],
     "height": datareq['height'],
-    "img": datareq['sprites']['front_default'],
-    "imgshiny": datareq['sprites']['front_shiny'],
+    "img": f"assets/img/{datareq['name']}_default.png",
+    "imgshiny": f"assets/img/{datareq['name']}_shiny.png",
     "types": optitype,
     "stats": datareq['stats'],
     "species": {

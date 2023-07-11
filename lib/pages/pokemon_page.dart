@@ -17,7 +17,7 @@ class PokemonPage extends StatelessWidget {
         child: SizedBox(
           width: 200,
           child: Card(
-            child: Image.network(
+            child: Image.asset(
               pokemon.imgshiny,
               fit: BoxFit.cover,
               filterQuality: FilterQuality.high,

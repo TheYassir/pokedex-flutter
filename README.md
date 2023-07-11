@@ -1,10 +1,6 @@
-# pokedex-flutter
-
-type 'List<dynamic>' is not a subtype of type 'List<Map<String, dynamic>>' error in Services
-
-A new Flutter project.
-
-For data use python3 script.py
+# Pokedex-flutter
+First : 
+Use script.py file or script_one.py for data and download image
 ## Getting Started
 
 This project is a starting point for a Flutter application.
