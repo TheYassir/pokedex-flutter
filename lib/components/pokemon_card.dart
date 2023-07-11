@@ -27,16 +27,18 @@ class PokemonCard extends StatelessWidget {
             left: 0,
             right: 0,
             top: 0,
+            bottom: 0,
             child: Image.asset(
               pokemon.img,
               fit: BoxFit.scaleDown,
+              scale: 0.7,
               filterQuality: FilterQuality.high,
             ),
           ),
           Positioned(
             left: 0,
             right: 0,
-            bottom: 32,
+            bottom: 4,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -55,11 +57,11 @@ class PokemonCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 0,
-            right: 0,
-            bottom: 4,
+            top: 6,
+            left: 6,
+            right: 6,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: PokemonService.pokemonTypesCard(pokemon),
             ),
           ),
