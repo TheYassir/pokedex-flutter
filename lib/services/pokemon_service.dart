@@ -19,43 +19,43 @@ class PokemonService {
   static Color pokemonColorCard(PokemonModel pokemon) {
     switch (pokemon.types[0]) {
       case 'grass':
-        return const Color.fromRGBO(84, 175, 149, 1);
+        return const Color.fromARGB(210, 84, 175, 149);
       case 'fire':
-        return const Color.fromARGB(255, 233, 74, 74);
+        return const Color.fromARGB(202, 233, 74, 74);
       case 'water':
-        return const Color.fromRGBO(115, 174, 236, 1);
+        return const Color.fromARGB(212, 115, 173, 236);
       case 'bug':
-        return const Color.fromRGBO(167, 190, 58, 1);
+        return const Color.fromARGB(210, 168, 190, 58);
       case 'normal':
-        return const Color.fromRGBO(191, 191, 191, 1);
+        return const Color.fromARGB(211, 191, 191, 191);
       case 'poison':
-        return const Color.fromARGB(255, 166, 109, 190);
+        return const Color.fromARGB(213, 166, 109, 190);
       case 'electric':
-        return const Color.fromRGBO(249, 206, 106, 1);
+        return const Color.fromARGB(211, 249, 206, 106);
       case 'ground':
-        return const Color.fromRGBO(187, 137, 131, 1);
+        return const Color.fromARGB(213, 187, 137, 131);
       case 'fairy':
-        return const Color.fromRGBO(249, 143, 184, 1);
+        return const Color.fromARGB(212, 249, 143, 183);
       case 'fighting':
-        return const Color.fromARGB(255, 245, 124, 0);
+        return const Color.fromARGB(211, 245, 123, 0);
       case 'psychic':
-        return const Color.fromRGBO(226, 96, 139, 1);
+        return const Color.fromARGB(213, 226, 96, 139);
       case 'rock':
-        return const Color.fromARGB(255, 139, 95, 91);
+        return const Color.fromARGB(213, 139, 95, 91);
       case 'ghost':
-        return const Color.fromARGB(255, 107, 68, 125);
+        return const Color.fromARGB(213, 107, 68, 125);
       case 'ice':
-        return const Color.fromRGBO(147, 200, 246, 1);
+        return const Color.fromARGB(211, 147, 200, 246);
       case 'dragon':
-        return const Color.fromRGBO(56, 96, 214, 1);
+        return const Color.fromARGB(212, 56, 96, 214);
       case 'flying':
-        return const Color.fromRGBO(147, 200, 246, 1);
+        return const Color.fromARGB(212, 147, 200, 246);
       case 'dark':
-        return const Color.fromRGBO(90, 87, 97, 1);
+        return const Color.fromARGB(212, 90, 87, 97);
       case 'steel':
-        return const Color.fromRGBO(149, 148, 148, 1);
+        return const Color.fromARGB(212, 149, 148, 148);
       default:
-        return const Color.fromARGB(255, 255, 255, 255);
+        return const Color.fromARGB(212, 255, 255, 255);
     }
   }
 
