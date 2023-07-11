@@ -19,46 +19,29 @@ class PokemonFilteredlistBloc
   void setFilteredPokemons(
       List<String> filter, List<PokemonModel> pokemons, String searchTerm) {
     List<PokemonModel>? filterPokemons;
-    // List<PokemonModel> arrayPok = [];
-    // int loop = 0;
+    List<PokemonModel> arrayPok = [];
+    int loop = 0;
 
     if (filter.isNotEmpty) {
-      // do {
-      //   arrayPok.addAll(pokemons
-      //       .where((pokemon) =>
-      //           filter[loop].contains(pokemon.types[0]['type']['name']))
-      //       .toList());
-      //   loop++;
-      // } while (loop < filter.length);
-      // filterPokemons = arrayPok;
-      // filterPokemons.sort((a, b) => a.id.compareTo(b.id));
-      filterPokemons = pokemons
-          .where(
-              (pokemon) => filter[0].contains(pokemon.types[0]['type']['name']))
-          .toList();
+      do {
+        arrayPok.addAll(pokemons
+            .where((pokemon) =>
+                filter[loop].contains(pokemon.types[0]) ||
+                (pokemon.types.length > 1
+                    ? filter[loop].contains(pokemon.types[1])
+                    : false))
+            .toList());
+
+        loop++;
+      } while (loop < filter.length);
+      Set<PokemonModel> arrayUnique = Set<PokemonModel>.from(arrayPok);
+
+      List<PokemonModel> finalArray = arrayUnique.toList();
+      filterPokemons = finalArray;
+      filterPokemons.sort((a, b) => a.id.compareTo(b.id));
     } else {
-      // var test = pokemons[0].types[0]['type']['name'];
-      // print(test);
       filterPokemons = pokemons;
     }
-
-    // switch (filter.length) {
-    //   case 1:
-    //     filterPokemons =
-    //         pokemons.where((pokemon) => filter[0].contains(pokemon.types[0].type.name)).toList();
-    //     break;
-    //   case 2:
-    //       filterPokemonsOne =
-    //         pokemons.where((pokemon) => filter[0].contains(pokemon.types[0].type.name)).toList();
-    //       filterPokemonsTwo =
-    //         pokemons.where((pokemon) => filter[1].contains(pokemon.types[0].type.name)).toList();
-    //       filterPokemons = filterPokemonsOne + filterPokemonsTwo;
-    //       filterPokemons.sort((a, b) => a.id.compareTo(b.id));
-    //     break;
-    //   default:
-    //     filterPokemons = pokemons;
-    //     break;
-    // }
 
     if (searchTerm.isNotEmpty) {
       filterPokemons = filterPokemons

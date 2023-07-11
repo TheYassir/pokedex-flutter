@@ -17,7 +17,7 @@ class PokemonService {
   }
 
   static Color pokemonColorCard(PokemonModel pokemon) {
-    switch (pokemon.types[0]['type']['name']) {
+    switch (pokemon.types[0]) {
       case 'grass':
         return const Color.fromRGBO(84, 175, 149, 1);
       case 'fire':
@@ -97,7 +97,7 @@ class PokemonService {
     List array = pokemon.types;
     var i = 0;
     do {
-      switch (pokemon.types[i]['type']['name']) {
+      switch (pokemon.types[i]) {
         case 'grass':
           pokemonTypesIcons.add(SizedBox(
             height: 24,

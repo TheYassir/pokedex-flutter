@@ -16,6 +16,15 @@ datareqspecie = reqspecie.json()
 reqevol = requests.get(datareqspecie['evolution_chain']['url'])
 dataevol = reqevol.json()
 
+optitype = []
+match len(datareq['types']):
+  case 1:
+    optitype.append(datareq['types'][0]['type']['name'])
+
+  case 2:
+    optitype.append(datareq['types'][0]['type']['name'])
+    optitype.append(datareq['types'][1]['type']['name'])
+
 poke = {
   "id": datareq['id'],
   "name": datareq['name'],
@@ -23,7 +32,7 @@ poke = {
   "height": datareq['height'],
   "img": datareq['sprites']['front_default'],
   "imgshiny": datareq['sprites']['front_shiny'],
-  "types": datareq['types'],
+  "types": optitype,
   "stats": datareq['stats'],
   "species": {
     "base_happiness": datareqspecie['base_happiness'],

@@ -1,4 +1,4 @@
-List<Map<String, String>> selectdata = [
+const selectdata = [
   {
     "display": "Grass",
     "value": "grass",
