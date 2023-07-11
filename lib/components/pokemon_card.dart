@@ -63,13 +63,13 @@ class PokemonCard extends StatelessWidget {
               children: PokemonService.pokemonTypesCard(pokemon),
             ),
           ),
-          const Positioned(
-              right: 6,
-              top: 6,
-              child: Icon(
-                Icons.favorite,
-                color: Color.fromRGBO(255, 255, 255, 1),
-              )),
+          // const Positioned(
+          //     right: 6,
+          //     top: 6,
+          //     child: Icon(
+          //       Icons.favorite,
+          //       color: Color.fromRGBO(255, 255, 255, 1),
+          //     )),
         ]),
       ),
     );
