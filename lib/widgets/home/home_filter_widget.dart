@@ -101,7 +101,7 @@ class HomeFilter extends StatelessWidget {
         valueField: 'value',
         okButtonLabel: 'OK',
         cancelButtonLabel: 'CANCEL',
-        hintWidget: const Text('Please choose one or more'),
+        hintWidget: const Text('Tap to select filter'),
         onSaved: (value) {
           List<String> strArray =
               (value as List).map((item) => item as String).toList();

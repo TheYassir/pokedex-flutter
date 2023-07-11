@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                       padding: EdgeInsets.all(16),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           HomeTitle(),
                           HomeSearch(),

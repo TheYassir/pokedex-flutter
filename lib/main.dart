@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
             return pokemonListBloc;
           },
         ),
-        // BlocProvider<PokemonListBloc>(create: (context) => PokemonListBloc()),
         BlocProvider<PokemonFilterBloc>(
             create: (context) => PokemonFilterBloc()),
         BlocProvider<PokemonSearchBloc>(
