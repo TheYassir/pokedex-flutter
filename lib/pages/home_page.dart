@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/blocs.dart';
+import 'package:pokemon/bloc/pokemon_list/pokemon_list_bloc.dart';
 import 'package:pokemon/widgets/home/home.dart';
 import '../components/pokedex_appbar.dart';
 

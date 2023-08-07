@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
-import 'package:pokemon/bloc/blocs.dart';
+import 'package:pokemon/bloc/pokemon_list/pokemon_list_bloc.dart';
 
 class HomeFilter extends StatelessWidget {
   const HomeFilter({
@@ -107,8 +107,8 @@ class HomeFilter extends StatelessWidget {
               (value as List).map((item) => item as String).toList();
 
           context
-              .read<PokemonFilterBloc>()
-              .add(ChangeFilterEvent(newFilter: strArray));
+              .read<PokemonListBloc>()
+              .add(LoadPokemonByType(types: strArray));
         });
   }
 }

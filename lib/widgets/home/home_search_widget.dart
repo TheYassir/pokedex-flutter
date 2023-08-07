@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon/bloc/blocs.dart';
+import 'package:pokemon/bloc/pokemon_list/pokemon_list_bloc.dart';
 
 class HomeSearch extends StatelessWidget {
   const HomeSearch({
@@ -21,8 +21,8 @@ class HomeSearch extends StatelessWidget {
       onChanged: (String? newSearchTerms) {
         if (newSearchTerms != null) {
           context
-              .read<PokemonSearchBloc>()
-              .add(SetSearchTermEvent(newSearchTerms: newSearchTerms));
+              .read<PokemonListBloc>()
+              .add(LoadPokemonBySearch(searchTerm: newSearchTerms));
         }
       },
     ));

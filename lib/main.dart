@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon/bloc/blocs.dart';
+import 'package:pokemon/bloc/pokemon_list/pokemon_list_bloc.dart';
 import 'routing/pokedex_router.dart';
 
 void main() {
@@ -12,24 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) {
-            PokemonListBloc pokemonListBloc = PokemonListBloc();
-            pokemonListBloc.add(PokemonListLoadEvent());
-            return pokemonListBloc;
-          },
-        ),
-        BlocProvider<PokemonFilterBloc>(
-            create: (context) => PokemonFilterBloc()),
-        BlocProvider<PokemonSearchBloc>(
-            create: (context) => PokemonSearchBloc()),
-        BlocProvider<PokemonFilteredlistBloc>(
-            create: (context) => PokemonFilteredlistBloc(
-                initialPokemons:
-                    context.read<PokemonListBloc>().state.pokemons)),
-      ],
+    return BlocProvider(
+      create: (context) {
+        PokemonListBloc pokemonListBloc = PokemonListBloc();
+        pokemonListBloc.add(PokemonListLoadEvent());
+        return pokemonListBloc;
+      },
       child: MaterialApp.router(
         title: "PokeFLutter",
         theme: ThemeData(
